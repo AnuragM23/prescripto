@@ -76,11 +76,7 @@ function Appointment() {
   }, [docInfo]);
 
   useEffect(() => {
-    console.log(docSlots);
-    console.log(typeof docSlots);
-    console.log(docSlots[0].datetime.getDay());
-    
-    
+    console.log(docSlots);    
   }, [docSlots]);
 
   return (
@@ -134,9 +130,11 @@ function Appointment() {
         <div>
           {docSlots.length &&
             docSlots.map((item, index) => {
-              <div key={index}>
-                <p>{item[0] && daysOfWeek[item[0].datetime.getDay()]}</p>
-                <p>{item[0] && item[0].datetime.getDate()}</p>
+              <div key={item}>
+                <p>{daysOfWeek[item[0].datetime.getDay()]}</p>
+                {console.log(item[0].datetime.getDay())}
+                {console.log(item[0].datetime.getDate())}
+                <p>{item[0].datetime.getDate()}</p>
               </div>;
             })}
         </div>
